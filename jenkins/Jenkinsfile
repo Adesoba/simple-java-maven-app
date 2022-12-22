@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools { 
+      maven 'MAVEN_HOME' 
+      jdk 'JAVA_HOME' 
+    }
     stages {
         stage('Build'){
             steps{
@@ -18,8 +22,8 @@ pipeline {
         }
         stage('Deliver'){
             steps {
-                sh './jenkins/scripts/deliver.sh'} 
+                sh './jenkins/scripts/deliver.sh') 
             }
         }
     }
-
+}
